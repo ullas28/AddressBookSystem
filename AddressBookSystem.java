@@ -1,6 +1,7 @@
 package com.bridgelabz.AddressBook;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AddressBookSystem {
     public static void main(String[] args) {
@@ -10,26 +11,25 @@ public class AddressBookSystem {
         * */
 
         System.out.println("Welcome to Address Book Program");
-        Contacts.createContact("Ullas Kumar K","Salem","Bangalore","Maharashtra","457896","8105810589","dsddw@gmail.com");
+        Contacts.createContact();
     }
 
 
     class Contacts {
-        /**creating contact using Arraylist **/
+        /**creating contact using Arraylist
+         * taking input from console
+         * **/
 
-        static void createContact(String name, String address, String city, String state, String zipCode, String phoneNo, String email) {
+        static void createContact() {
             ArrayList<String> firstContact = new ArrayList<String>(7);
-
-            firstContact.add(name);
-            firstContact.add(address);
-            firstContact.add(city);
-            firstContact.add(state);
-            firstContact.add(zipCode);
-            firstContact.add(phoneNo);
-            firstContact.add(email);
-
+            Scanner s = new Scanner(System.in);
+            System.out.println("Enter the contact details  : ");
+            System.out.println("Name Address City State Zipcode PhoneNo EmailId  : ");
+            for (int i = 0; i < 7; i++) {
+                String k = s.nextLine();
+                firstContact.add(k);
+            }
             System.out.println(firstContact );
-
         }
     }
 }

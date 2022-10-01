@@ -10,7 +10,7 @@ public class AddressBookSystem {
         * */
 
         System.out.println("Welcome to Address Book Program");
-        Contacts.createContact("Ullas Kumar K","Vijayanagar","Bangalore","Karnataka","560023","8105897193","ullaskumark29@gmail.com");
+        Contacts.createContact("Ullas Kumar K","Salem","Bangalore","Maharashtra","457896","8105810589","dsddw@gmail.com");
     }
 
 

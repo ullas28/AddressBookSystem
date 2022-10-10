@@ -17,6 +17,8 @@ public class AddressBookSystem {
         Contacts.editContact();
         System.out.println("================================");
         Contacts.deleteContact();
+        System.out.println("================================");
+        Contacts.createSecondContact();
     }
 
 
@@ -25,7 +27,9 @@ public class AddressBookSystem {
          * taking input from console
          * **/
        static ArrayList<String> contacts = new ArrayList<String>(7);
-       static Scanner sc = new Scanner(System.in);
+       static ArrayList<String> secondContact = new ArrayList<String>(7);
+
+        static Scanner sc = new Scanner(System.in);
 
         static void createContact() {
             Scanner s = new Scanner(System.in);
@@ -38,6 +42,21 @@ public class AddressBookSystem {
             System.out.println(" -------------------------------------------");
             System.out.println("contact details added :");
             System.out.println(contacts);
+        }
+        static void createSecondContact() {
+
+            System.out.println("******************************************");
+            System.out.println("Create Second Contact details: ");
+            System.out.println("name address city state zip phoneNo email  : ");
+
+            /** adding contact details from console **/
+            for (int i = 0; i < 7; i++) {
+                String s = sc.nextLine();
+                secondContact.add(s);
+            }
+            System.out.println(" -------------------------------------------");
+            System.out.println("contact details added :");
+            System.out.println(secondContact);
         }
         static void editContact() {
             System.out.println(" ");

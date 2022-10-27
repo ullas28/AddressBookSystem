@@ -79,6 +79,7 @@ public class Contact {
         return email.equals(other.getEmail());
     }
 
+
     @Override
     public String toString() {
         return fName + "\t" + lName + "\t" + address + "\t" + city + "\t" + state + "\t" + zip + "\t" + phone + "\t"

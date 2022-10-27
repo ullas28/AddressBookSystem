@@ -6,6 +6,30 @@ public class AddressBookSystem {
     private static final List<AddressBookService> library = new ArrayList<>();
     private static final Scanner sc = new Scanner(System.in);
 
+    private static Map<String, List<Contact>> consolidatedCityMap() {
+        Map<String, List<Contact>> cityMap = new HashMap<>();
+        for (AddressBookService book : library) {
+            book.cityMap().forEach((key, value) -> cityMap.merge(key, value, (vo, vn) -> {
+                vo.addAll(vn);
+                return vo;
+            }));
+        }
+
+        return cityMap;
+    }
+
+    private static Map<String, List<Contact>> consolidatedStateMap() {
+        Map<String, List<Contact>> stateMap = new HashMap<>();
+        for (AddressBookService book : library) {
+            book.stateMap().forEach((key, value) -> stateMap.merge(key, value, (vo, vn) -> {
+                vo.addAll(vn);
+                return vo;
+            }));
+        }
+
+        return stateMap;
+    }
+
     private static int locateIndex(String name) {
         for (int i = 0; i < library.size(); i++)
             if (library.get(i).getBookName().equals(name))
@@ -90,7 +114,7 @@ public class AddressBookSystem {
                 case 4:
                     searchByPrompt();
                     break;
-                case 5: //quit
+                case 5: ////quit
                     sc.close();
                     return;
                 default:
@@ -99,8 +123,9 @@ public class AddressBookSystem {
             }
         }
     }
+    }
 
-    private static class AddressBook {
+     class AddressBook {
         private static int addressPrompt(Scanner sc) {
             System.out.println("\n\nWelcome to Address Book Program");
             System.out.println("1. Add Contact");
@@ -181,4 +206,3 @@ public class AddressBookSystem {
 
         }
     }
-}

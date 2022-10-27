@@ -2,7 +2,6 @@ package com.bridgelabz.AddressBook;
 
 import java.util.*;
 public class AddressBookSystem {
-
     private static final List<AddressBookService> library = new ArrayList<>();
     private static final Scanner sc = new Scanner(System.in);
 
@@ -43,7 +42,8 @@ public class AddressBookSystem {
         System.out.println("2. Select Book");
         System.out.println("3. Delete Book");
         System.out.println("4. Search");
-        System.out.println("5. Quit");
+        System.out.println("5. Count");
+        System.out.println("6. Quit");
         System.out.print("Your choice: ");
         int choice = AddressBookSystem.sc.nextInt();
         AddressBookSystem.sc.nextLine();
@@ -82,6 +82,28 @@ public class AddressBookSystem {
 
     }
 
+    private static void countPrompt() {
+        System.out.println("1. By city");
+        System.out.println("2. By state");
+        System.out.println("3. Back");
+        System.out.println("Your choice: ");
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        switch (choice) {
+            case 1:
+                consolidatedCityMap().forEach((k, v) -> System.out.println(k + "\t" + v.size()));
+                break;
+            case 2:
+                consolidatedStateMap().forEach((k, v) -> System.out.println(k + "\t" + v.size()));
+                break;
+            case 3:
+                return;
+            default:
+                System.out.println("INVALID CHOICE!");
+        }
+    }
+
     private static void addBook(String bookName) {
         AddressBookService addressBookService = new AddressBookService();
         addressBookService.setBookName(bookName);
@@ -114,7 +136,11 @@ public class AddressBookSystem {
                 case 4:
                     searchByPrompt();
                     break;
-                case 5: ////quit
+
+                case 5: //count by city/state
+                    countPrompt();
+                    break;
+                case 6: //quit
                     sc.close();
                     return;
                 default:

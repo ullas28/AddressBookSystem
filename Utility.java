@@ -27,7 +27,6 @@ public class Utility {
         return new Contact(fName, lName, address, city, state, zip, phone, email);
     }
 
-
     public static void printConditionally(List<Contact> contacts, Predicate<Contact> predicate){
         //Header
         System.out.println("Index\tFirst Name\tLast Name\tAddress\tCity\tState\tZip\tPhone\tEmail");

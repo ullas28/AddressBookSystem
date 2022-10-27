@@ -19,6 +19,7 @@ public class AddressBookService {
         this.bookName = bookName;
     }
 
+
     public boolean addContact(Contact contact) {
         List<Contact> filteredByFName = searchByName(contact.getfName());
         for (Contact sameName : filteredByFName)
